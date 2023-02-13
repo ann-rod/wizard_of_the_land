@@ -1,0 +1,47 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://sprite pngs/wizard_side_01.png" type="Texture" id=1]
+[ext_resource path="res://sprite pngs/wizard_up_01.png" type="Texture" id=2]
+[ext_resource path="res://sprite pngs/wizard_up_02.png" type="Texture" id=3]
+[ext_resource path="res://sprite pngs/wizard_up_03.png" type="Texture" id=4]
+[ext_resource path="res://sprite pngs/wizard_down_00.png" type="Texture" id=5]
+[ext_resource path="res://sprite pngs/wizard_side_02.png" type="Texture" id=6]
+[ext_resource path="res://sprite pngs/wizard_down_01.png" type="Texture" id=7]
+[ext_resource path="res://sprite pngs/wizard_side_00.png" type="Texture" id=8]
+[ext_resource path="res://sprite pngs/wizard_side_03.png" type="Texture" id=9]
+[ext_resource path="res://sprite pngs/wizard_down_03.png" type="Texture" id=10]
+[ext_resource path="res://sprite pngs/wizard_down_02.png" type="Texture" id=11]
+[ext_resource path="res://sprite pngs/wizard_up_00.png" type="Texture" id=12]
+[ext_resource path="res://Player.gd" type="Script" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.0
+height = 14.0
+
+[node name="Player" type="Area2D"]
+script = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
