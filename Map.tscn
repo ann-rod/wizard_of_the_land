@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tree2.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Map.gd" type="Script" id=6]
 [ext_resource path="res://sounds/spell_sound.mp3" type="AudioStream" id=7]
 [ext_resource path="res://SpellManager.gd" type="Script" id=8]
+[ext_resource path="res://Mob.tscn" type="PackedScene" id=9]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 6 )
@@ -73,3 +74,9 @@ stream = ExtResource( 7 )
 
 [node name="OverworldTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Mob" parent="." instance=ExtResource( 9 )]
+position = Vector2( 399, 354 )
+scale = Vector2( 1.5, 1.5 )
+
+[connection signal="area_entered" from="Mob" to="Mob" method="handle_hit"]
