@@ -45,3 +45,21 @@ animation = "down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="SpellOriginUp" type="Position2D" parent="."]
+position = Vector2( 0, -33 )
+
+[node name="SpellOriginDown" type="Position2D" parent="."]
+position = Vector2( 0, 19 )
+
+[node name="SpellOriginRight" type="Position2D" parent="."]
+position = Vector2( 26, 8 )
+
+[node name="SpellOriginLeft" type="Position2D" parent="."]
+position = Vector2( -26, 8 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
