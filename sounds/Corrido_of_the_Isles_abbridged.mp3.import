@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Corrido_of_the_Isles_abbridged.mp3-87f0fabc0ea4d927aa51f0be87f4a22d.mp3str"
+
+[deps]
+
+source_file="res://sounds/Corrido_of_the_Isles_abbridged.mp3"
+dest_files=[ "res://.import/Corrido_of_the_Isles_abbridged.mp3-87f0fabc0ea4d927aa51f0be87f4a22d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

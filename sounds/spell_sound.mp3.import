@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spell_sound.mp3-704cf592ae11768813f28611fabeec9d.mp3str"
+
+[deps]
+
+source_file="res://sounds/spell_sound.mp3"
+dest_files=[ "res://.import/spell_sound.mp3-704cf592ae11768813f28611fabeec9d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
