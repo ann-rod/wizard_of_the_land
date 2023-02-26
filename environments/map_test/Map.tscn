@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environments/env_assets/tree1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environments/env_assets/tree2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environments/env_assets/tree3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environments/map_test/Map.gd" type="Script" id=6]
+
+[node name="Map" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1032.0
+margin_bottom = 608.0
+color = Color( 0.239216, 0.396078, 0.156863, 1 )
+
+[node name="tree2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 203, 91 )
+
+[node name="tree5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 187, 424 )
+
+[node name="tree1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 205, 497 )
+
+[node name="tree3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 861, 208 )
+
+[node name="tree4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 782, 275 )
+
+[node name="tree6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 720, 349 )
+
+[node name="tree7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 645, 416 )
+
+[node name="tree8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 566, 484 )
+
+[node name="tree9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 107, 71 )
+
+[node name="tree10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 140, 158 )

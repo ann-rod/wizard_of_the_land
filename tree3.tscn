@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://sprite pngs/tree 3.png" type="Texture" id=1]
-
-[node name="tree3" type="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.292367, 0.278361 )
-texture = ExtResource( 1 )
