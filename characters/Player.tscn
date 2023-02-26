@@ -47,7 +47,6 @@ animation = "down"
 shape = SubResource( 2 )
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="SpellOriginUp" type="Position2D" parent="."]

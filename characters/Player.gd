@@ -72,15 +72,23 @@ func handle_hit():
 		$CollisionShape2D.set_deferred("disabled", true) # disable collisions
 		emit_signal("player_hp_zero")
 
-func _unhandled_input(event):
+# Shoot using space key
+#func _unhandled_input(event):
+#	if event.is_action_released("shoot"):
+#		shoot()
+#		print("player shot!")
+
+# Shoot using mouse
+func _input(event):
 	if event.is_action_released("shoot"):
 		shoot()
 
 func shoot():
 	if(attack_cooldown.is_stopped()):
-		#var spell_instance = Spell.instance()
 		var spell_instance = preload("res://spells/Spell.tscn").instance()
-		emit_signal("player_cast_spell", spell_instance, get_spell_origin(), player_dir)
+		var spell_origin = get_spell_origin()
+		var spell_dir = (get_global_mouse_position()-spell_origin).normalized()
+		emit_signal("player_cast_spell", spell_instance, spell_origin, spell_dir)
 		attack_cooldown.start()
 
 func get_spell_origin():
