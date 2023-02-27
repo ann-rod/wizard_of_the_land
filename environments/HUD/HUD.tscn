@@ -58,18 +58,18 @@ align = 1
 valign = 1
 
 [node name="Instructions" type="Label" parent="."]
-margin_left = 420.0
+margin_left = 400.0
 margin_top = 100.0
-margin_right = 460.0
+margin_right = 440.0
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 
 [node name="NextButton" type="Button" parent="Instructions"]
-margin_left = 50.0
+margin_left = 70.0
 margin_top = 40.0
-margin_right = 130.0
+margin_right = 150.0
 margin_bottom = 65.0
 text = "Next"
 
