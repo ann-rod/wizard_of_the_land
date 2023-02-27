@@ -25,3 +25,6 @@ func game_over():
 
 func _on_Player_player_hp_zero():
 	game_over()
+
+func _on_HUD_start_tutorial():
+	pass

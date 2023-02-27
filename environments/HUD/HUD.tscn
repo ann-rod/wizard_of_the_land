@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://environments/HUD/HUD.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="PauseBG" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.156863 )
+
+[node name="PausedText" type="Label" parent="PauseBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -53.0
+margin_top = -18.5
+margin_right = 53.0
+margin_bottom = 18.5
+custom_fonts/font = SubResource( 2 )
+text = "Paused"
+
+[node name="TutorialLabel" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+margin_left = 430.0
+margin_top = 26.0
+margin_right = 590.0
+margin_bottom = 66.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="TutorialText" type="Label" parent="TutorialLabel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -55.0
+margin_top = 4.0
+margin_right = 55.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 1 )
+text = "Tutorial"
+align = 1
+valign = 1
+
+[node name="Instructions" type="Label" parent="."]
+margin_left = 420.0
+margin_top = 100.0
+margin_right = 460.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="NextButton" type="Button" parent="Instructions"]
+margin_left = 50.0
+margin_top = 40.0
+margin_right = 130.0
+margin_bottom = 65.0
+text = "Next"
+
+[node name="PauseButton" type="Button" parent="."]
+margin_left = 980.0
+margin_top = 20.0
+margin_right = 1010.0
+margin_bottom = 50.0
+text = "||"
+
+[node name="TutorialButton" type="Button" parent="."]
+margin_left = 470.0
+margin_top = 340.0
+margin_right = 550.0
+margin_bottom = 365.0
+text = "Tutorial"
+
+[connection signal="mouse_entered" from="PauseBG" to="." method="_on_PauseBG_mouse_entered"]
+[connection signal="mouse_exited" from="PauseBG" to="." method="_on_PauseBG_mouse_exited"]
+[connection signal="pressed" from="Instructions/NextButton" to="." method="_on_NextButton_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_TutorialButton_pressed"]
