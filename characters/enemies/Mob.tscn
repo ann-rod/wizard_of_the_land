@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/mob_sprites/mob_up_01.png" type="Texture" id=1]
 [ext_resource path="res://art/mob_sprites/mob_up_00.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://art/mob_sprites/mob_side_00.png" type="Texture" id=5]
 [ext_resource path="res://art/mob_sprites/mob_side_01.png" type="Texture" id=6]
 [ext_resource path="res://characters/enemies/Mob.gd" type="Script" id=7]
+[ext_resource path="res://characters/enemies/AI.gd" type="Script" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,6 +30,9 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 height = 10.0
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 95.0053
+
 [node name="Mob" type="Area2D"]
 script = ExtResource( 7 )
 
@@ -39,4 +43,19 @@ animation = "side"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="PlayerDetectionZone" type="Area2D" parent="AI" groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+shape = SubResource( 3 )
+
+[node name="MobAttackCooldown" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_Mob_body_entered"]
+[connection signal="attempt_to_shoot" from="AI" to="." method="_on_AI_attempt_to_shoot"]
+[connection signal="area_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_area_entered"]
+[connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_body_entered"]

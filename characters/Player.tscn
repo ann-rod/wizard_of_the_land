@@ -36,7 +36,7 @@ animations = [ {
 radius = 16.0
 height = 14.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -46,14 +46,15 @@ animation = "down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="AttackCooldown" type="Timer" parent="." groups=["player"]]
+wait_time = 2.0
 one_shot = true
 
 [node name="SpellOriginUp" type="Position2D" parent="."]
 position = Vector2( 0, -33 )
 
 [node name="SpellOriginDown" type="Position2D" parent="."]
-position = Vector2( 0, 19 )
+position = Vector2( 0, 30 )
 
 [node name="SpellOriginRight" type="Position2D" parent="."]
 position = Vector2( 26, 8 )

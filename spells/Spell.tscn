@@ -18,4 +18,6 @@ texture = ExtResource( 1 )
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[connection signal="area_entered" from="." to="." method="_on_Spell_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Spell_area_exited"]
 [connection signal="body_entered" from="." to="." method="_on_Spell_body_entered"]

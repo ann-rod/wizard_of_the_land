@@ -5,11 +5,12 @@ signal player_hp_zero
 signal player_cast_spell(spell, pos, dir)
 
 var PLAYER_HP = 3
-export var speed = 400
+export var speed = 250
 var screen_size
 var player_dir = Vector2(0, -1) # player dir defaults to up
 
 export (PackedScene) var Spell
+onready var collision_shape = $CollisionShape2D
 onready var attack_cooldown = $AttackCooldown
 onready var spell_origin_up = $SpellOriginUp
 onready var spell_origin_down = $SpellOriginDown
@@ -18,7 +19,7 @@ onready var spell_origin_left = $SpellOriginLeft
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	$CollisionShape2D.disabled = false # enable collisions
+	collision_shape.disabled = false # enable collisions
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
@@ -62,21 +63,15 @@ func _process(delta):
 
 func _on_Player_body_entered(_body):
 	emit_signal("hit")
+	#print("player was hit!")
 	handle_hit()
 
 func handle_hit():
 	PLAYER_HP -= 1
+	print("current player HP:", PLAYER_HP)
 	
 	if(PLAYER_HP <= 0):
-		hide() # hide player
-		$CollisionShape2D.set_deferred("disabled", true) # disable collisions
 		emit_signal("player_hp_zero")
-
-# Shoot using space key
-#func _unhandled_input(event):
-#	if event.is_action_released("shoot"):
-#		shoot()
-#		print("player shot!")
 
 # Shoot using mouse
 func _input(event):
@@ -88,10 +83,11 @@ func shoot():
 		var spell_instance = preload("res://spells/Spell.tscn").instance()
 		var spell_origin = get_spell_origin()
 		var spell_dir = (get_global_mouse_position()-spell_origin).normalized()
-		emit_signal("player_cast_spell", spell_instance, spell_origin, spell_dir)
+		emit_signal("player_cast_spell", spell_instance, self, spell_origin, spell_dir)
 		attack_cooldown.start()
 
 func get_spell_origin():
+	# chooses a node as the spell's origin
 	if(player_dir.x > 0):
 		return spell_origin_right.global_position
 	elif(player_dir.x < 0):
