@@ -100,6 +100,7 @@ text = "Back to menu"
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="_on_Player_player_cast_spell"]
+[connection signal="player_hp_zero" from="Player" to="." method="_on_Player_player_hp_zero"]
 [connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
