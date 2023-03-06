@@ -8,7 +8,6 @@ onready var mob = $Mob
 
 func _ready():
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
-	
 
 func game_over():
 	print("game over!")
