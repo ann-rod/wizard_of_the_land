@@ -81,7 +81,7 @@ func _on_Chest_chest_opened():
 
 
 func _on_NextButton_pressed():
-	pass
+	get_tree().change_scene("res://key_scenes/title_screen/TitleScreen.tscn")
 
 func is_mouse_over_hud():
 	var next_button_rect = next_button.get_global_rect()
