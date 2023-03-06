@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://environments/level1/level1map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
@@ -6,6 +6,11 @@
 [ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=4]
 [ext_resource path="res://environments/level1/level1.gd" type="Script" id=5]
 [ext_resource path="res://spells/SpellManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 7 )
 
 [node name="level1" type="Node2D"]
 script = ExtResource( 5 )
@@ -52,8 +57,51 @@ limit_top = 0
 limit_right = 1028
 limit_bottom = 602
 
+[node name="Control" type="Control" parent="."]
+margin_left = -19.0
+margin_top = -13.0
+margin_right = 21.0
+margin_bottom = 27.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_left = 0.32
+anchor_top = 0.03
+anchor_right = 0.68
+anchor_bottom = 0.14
+margin_left = 312.2
+margin_top = 39.8
+margin_right = 723.8
+margin_bottom = 91.4
+grow_horizontal = 2
+color = Color( 0, 0, 0, 0.317647 )
+
+[node name="portallabel" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.06
+anchor_right = 0.5
+anchor_bottom = 0.09
+margin_left = 453.0
+margin_top = 46.6
+margin_right = 578.0
+margin_bottom = 87.4
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+text = "You made it to the portal!"
+align = 1
+valign = 1
+
+[node name="menubutton" type="Button" parent="."]
+margin_left = 463.0
+margin_top = 117.0
+margin_right = 563.0
+margin_bottom = 137.0
+text = "Back to menu"
+
+[connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
+[connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="_on_Player_player_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob4" to="SpellManager" method="_on_Mob_mob_cast_spell"]
+[connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
