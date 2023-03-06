@@ -104,4 +104,4 @@ func get_spell_origin():
 		return spell_origin_down.global_position
 	else:
 		return spell_origin_up.global_position
-	
+

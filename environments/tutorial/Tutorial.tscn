@@ -1,0 +1,198 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://environments/env_assets/tree2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environments/env_assets/tree3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environments/tutorial/Tutorial.gd" type="Script" id=4]
+[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=6]
+[ext_resource path="res://spells/SpellManager.gd" type="Script" id=7]
+[ext_resource path="res://art/sounds/spell_sound.mp3" type="AudioStream" id=8]
+[ext_resource path="res://environments/chest/Chest.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 149.75, 300 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 193.062, 300 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 167.5, 299.25 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 36
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 5 )
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.239216, 0.396078, 0.156863, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 60, 60 )
+
+[node name="SpellManager" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="SpellSound" type="AudioStreamPlayer2D" parent="SpellManager"]
+stream = ExtResource( 8 )
+
+[node name="TreeLine1" type="Node2D" parent="."]
+
+[node name="tree2" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 178, 61 )
+
+[node name="tree3" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 219, 123 )
+
+[node name="tree4" parent="TreeLine1" instance=ExtResource( 2 )]
+position = Vector2( 169, 150 )
+
+[node name="tree7" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 208, 193 )
+
+[node name="tree5" parent="TreeLine1" instance=ExtResource( 2 )]
+position = Vector2( 245, 242 )
+
+[node name="tree6" parent="TreeLine1" instance=ExtResource( 2 )]
+position = Vector2( 175, 272 )
+
+[node name="tree8" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 177, 320 )
+
+[node name="tree9" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 235, 357 )
+
+[node name="tree10" parent="TreeLine1" instance=ExtResource( 1 )]
+position = Vector2( 170, 523 )
+
+[node name="tree11" parent="TreeLine1" instance=ExtResource( 2 )]
+position = Vector2( 244, 539 )
+
+[node name="FirstArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstArea"]
+position = Vector2( 150.25, 300 )
+shape = SubResource( 1 )
+
+[node name="SecondArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecondArea"]
+position = Vector2( 493.938, 300 )
+shape = SubResource( 2 )
+
+[node name="ThirdArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThirdArea"]
+position = Vector2( 855.5, 299.75 )
+shape = SubResource( 3 )
+
+[node name="Mob" parent="." instance=ExtResource( 6 )]
+position = Vector2( 894, 300 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="TreeLine2" type="Node2D" parent="."]
+
+[node name="tree10" parent="TreeLine2" groups=["trees"] instance=ExtResource( 1 )]
+position = Vector2( 686, 300 )
+
+[node name="tree11" parent="TreeLine2" groups=["trees"] instance=ExtResource( 2 )]
+position = Vector2( 760, 316 )
+
+[node name="tree2" parent="TreeLine2" instance=ExtResource( 1 )]
+position = Vector2( 695, 365 )
+
+[node name="tree3" parent="TreeLine2" instance=ExtResource( 1 )]
+position = Vector2( 736, 427 )
+
+[node name="tree4" parent="TreeLine2" instance=ExtResource( 2 )]
+position = Vector2( 686, 454 )
+
+[node name="tree7" parent="TreeLine2" instance=ExtResource( 1 )]
+position = Vector2( 725, 497 )
+
+[node name="tree5" parent="TreeLine2" instance=ExtResource( 2 )]
+position = Vector2( 762, 546 )
+
+[node name="tree6" parent="TreeLine2" instance=ExtResource( 2 )]
+position = Vector2( 727, 52 )
+
+[node name="tree8" parent="TreeLine2" instance=ExtResource( 1 )]
+position = Vector2( 784, 95 )
+
+[node name="tree9" parent="TreeLine2" instance=ExtResource( 1 )]
+position = Vector2( 751, 134 )
+
+[node name="TutorialHUD" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="ColorRect" type="ColorRect" parent="TutorialHUD"]
+anchor_left = 0.32
+anchor_top = 0.03
+anchor_right = 0.68
+anchor_bottom = 0.14
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+grow_horizontal = 2
+color = Color( 0, 0, 0, 0.317647 )
+
+[node name="TutorialLabel" type="Label" parent="TutorialHUD"]
+anchor_left = 0.5
+anchor_top = 0.06
+anchor_right = 0.5
+anchor_bottom = 0.09
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 4 )
+text = "Tutorial"
+align = 1
+valign = 1
+
+[node name="InstructionsLabel" type="Label" parent="TutorialHUD"]
+anchor_left = 0.5
+anchor_top = 0.13
+anchor_right = 0.5
+anchor_bottom = 0.16
+margin_left = -35.0
+margin_right = 35.0
+margin_bottom = 14.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+text = "Intructions"
+align = 1
+valign = 1
+
+[node name="Chest" parent="." instance=ExtResource( 9 )]
+position = Vector2( 903, 563 )
+
+[node name="NextButton" type="Button" parent="."]
+margin_left = 905.0
+margin_top = 22.0
+margin_right = 1005.0
+margin_bottom = 42.0
+text = "Back to menu"
+
+[connection signal="player_cast_spell" from="Player" to="SpellManager" method="handle_spell_spawned"]
+[connection signal="area_entered" from="FirstArea" to="." method="_on_FirstArea_area_entered"]
+[connection signal="area_exited" from="FirstArea" to="." method="_on_FirstArea_area_exited"]
+[connection signal="area_entered" from="SecondArea" to="." method="_on_SecondArea_area_entered"]
+[connection signal="area_exited" from="SecondArea" to="." method="_on_SecondArea_area_exited"]
+[connection signal="area_entered" from="ThirdArea" to="." method="_on_ThirdArea_area_entered"]
+[connection signal="area_exited" from="ThirdArea" to="." method="_on_ThirdArea_area_exited"]
+[connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
+[connection signal="mob_killed" from="Mob" to="." method="_on_Mob_mob_killed"]
+[connection signal="chest_opened" from="Chest" to="." method="_on_Chest_chest_opened"]
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]

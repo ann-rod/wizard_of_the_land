@@ -51,4 +51,4 @@ func _on_StartButton_pressed():
 
 func _on_TutorialButton_pressed():
 	$TitleTheme.stop()
-	#get_tree().change_scene("")
+	get_tree().change_scene("res://environments/tutorial/Tutorial.tscn")
