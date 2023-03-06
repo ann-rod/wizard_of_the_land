@@ -47,7 +47,7 @@ func lerp_bg_color(step):
 
 func _on_StartButton_pressed():
 	$TitleTheme.stop()
-	get_tree().change_scene("res://key_scenes/main/Main.tscn")
+	get_tree().change_scene("res://environments/level1/level1.tscn")
 
 func _on_TutorialButton_pressed():
 	$TitleTheme.stop()
