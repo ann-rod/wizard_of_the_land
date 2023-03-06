@@ -2,7 +2,6 @@ extends Node2D
 
 onready var spell_manager = $SpellManager
 onready var player = $Player
-onready var map = $Map
 onready var mob = $Mob
 onready var menu_button = $menubutton
 onready var portallabel = $Control/portallabel
