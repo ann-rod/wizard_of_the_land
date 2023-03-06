@@ -6,10 +6,13 @@ signal mob_cast_spell(spell, pos, dir)
 export (PackedScene) var Spell
 
 onready var ai = $AI
+onready var health_bar = $HealthBar
 onready var attack_cooldown = $MobAttackCooldown
 onready var collision_shape = $CollisionShape2D
 
-var MOB_HP = 3
+var MAX_HEALTH = 3
+var CURRENT_HEALTH = 3
+
 var MOB_SPEED = 150
 var mob_direction = Vector2.ZERO
 var screen_size
@@ -18,6 +21,7 @@ var screen_size
 func _ready():
 	screen_size = get_viewport_rect().size
 	collision_shape.disabled = false # enable collisions
+	init_health_bar()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -41,13 +45,18 @@ func _physics_process(delta):
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down"
 
+func init_health_bar():
+	health_bar._on_max_health_updated(MAX_HEALTH)
+	health_bar._on_health_updated(MAX_HEALTH)
+
 func handle_hit():
-	MOB_HP -= 1
-	print("mob hp: ", MOB_HP)
+	CURRENT_HEALTH -= 1
+	health_bar._on_health_updated(CURRENT_HEALTH)
+	#print("mob hp: ", MOB_HP)
 	
 	# mob dies
-	if(MOB_HP <= 0):
-		print("mob killed!")
+	if(CURRENT_HEALTH <= 0):
+		#print("mob killed!")
 		queue_free()
 		emit_signal("mob_killed")
 		
