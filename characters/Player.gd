@@ -4,12 +4,15 @@ signal hit
 signal player_hp_zero
 signal player_cast_spell(spell, pos, dir)
 
-var PLAYER_HP = 3
+var MAX_HEALTH = 3
+var CURRENT_HEALTH = 3
+
 export var speed = 250
 var screen_size
 var player_dir = Vector2(0, -1) # player dir defaults to up
 
 export (PackedScene) var Spell
+onready var health_bar = $HealthBar
 onready var collision_shape = $CollisionShape2D
 onready var attack_cooldown = $AttackCooldown
 onready var spell_origin_up = $SpellOriginUp
@@ -20,6 +23,7 @@ onready var spell_origin_left = $SpellOriginLeft
 func _ready():
 	screen_size = get_viewport_rect().size
 	collision_shape.disabled = false # enable collisions
+	init_health_bar()
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
@@ -60,6 +64,9 @@ func _process(delta):
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down"
 
+func init_health_bar():
+	health_bar._on_max_health_updated(MAX_HEALTH)
+	health_bar._on_health_updated(MAX_HEALTH)
 
 func _on_Player_body_entered(_body):
 	emit_signal("hit")
@@ -67,10 +74,11 @@ func _on_Player_body_entered(_body):
 	handle_hit()
 
 func handle_hit():
-	PLAYER_HP -= 1
-	print("current player HP:", PLAYER_HP)
+	CURRENT_HEALTH -= 1
+	health_bar._on_health_updated(CURRENT_HEALTH)
+	#print("current player HP:", CURRENT_HEALTH)
 	
-	if(PLAYER_HP <= 0):
+	if(CURRENT_HEALTH <= 0):
 		emit_signal("player_hp_zero")
 
 # Shoot using mouse
