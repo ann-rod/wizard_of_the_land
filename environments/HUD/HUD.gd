@@ -11,7 +11,7 @@ var is_paused = false
 func _ready():
 	$PauseBG.hide()
 		
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		_on_PauseButton_pressed()
 
