@@ -71,7 +71,6 @@ func _on_Mob_mob_killed():
 	$Chest/Area2D/CollisionShape2D.set_deferred("disabled", false)
 	
 
-
 func _on_Chest_chest_opened():
 	print('chest collected')
 	chest.hide()
@@ -82,7 +81,7 @@ func _on_Chest_chest_opened():
 
 
 func _on_NextButton_pressed():
-	pass # Replace with function body.
+	pass
 
 func is_mouse_over_hud():
 	var next_button_rect = next_button.get_global_rect()
