@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 39.0
 
-[node name="tree1" type="Area2D"]
+[node name="tree1" type="StaticBody2D" groups=["trees"]]
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.0722072, 0.0751104 )

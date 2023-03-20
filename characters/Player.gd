@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 signal hit
 signal player_hp_zero
@@ -6,7 +6,6 @@ signal player_cast_spell(spell, pos, dir)
 
 var MAX_HEALTH = 3
 var CURRENT_HEALTH = 3
-
 export var speed = 250
 var screen_size
 var player_dir = Vector2(0, -1) # player dir defaults to up
@@ -27,7 +26,7 @@ func _ready():
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
-	
+
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		player_dir = Vector2.ZERO
@@ -51,7 +50,8 @@ func _process(delta):
 	else:
 		$AnimatedSprite.stop()
 		
-	position += velocity * delta
+	#position += velocity * delta
+	move_and_collide(velocity * delta)
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
@@ -104,4 +104,3 @@ func get_spell_origin():
 		return spell_origin_down.global_position
 	else:
 		return spell_origin_up.global_position
-

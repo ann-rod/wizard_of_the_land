@@ -37,7 +37,7 @@ animations = [ {
 radius = 16.0
 height = 14.0
 
-[node name="Player" type="Area2D" groups=["player"]]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -67,5 +67,3 @@ position = Vector2( -26, 8 )
 anchor_bottom = 0.431
 margin_top = -28.0
 rect_scale = Vector2( 1.1, 1.1 )
-
-[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
