@@ -12,7 +12,7 @@ var player_dir = Vector2(0, -1) # player dir defaults to up
 
 export (PackedScene) var Spell
 onready var health_bar = $HealthBar
-onready var collision_shape = $CollisionShape2D
+onready var collision_shape = $Area2D/CollisionShape2D2
 onready var attack_cooldown = $AttackCooldown
 onready var spell_origin_up = $SpellOriginUp
 onready var spell_origin_down = $SpellOriginDown
@@ -68,11 +68,15 @@ func init_health_bar():
 	health_bar._on_max_health_updated(MAX_HEALTH)
 	health_bar._on_health_updated(MAX_HEALTH)
 
-func _on_Player_body_entered(_body):
-	emit_signal("hit")
-	#print("player was hit!")
-	handle_hit()
+#func _on_Player_body_entered(_body):
+#	emit_signal("hit")
+#	#print("player was hit!")
+#	handle_hit()
+	
+	
+	
 
+	
 func handle_hit():
 	CURRENT_HEALTH -= 1
 	health_bar._on_health_updated(CURRENT_HEALTH)
@@ -104,3 +108,5 @@ func get_spell_origin():
 		return spell_origin_down.global_position
 	else:
 		return spell_origin_up.global_position
+
+
