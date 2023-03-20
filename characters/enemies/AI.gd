@@ -42,3 +42,8 @@ func _on_PlayerUndetectZone_area_exited(area):
 	if(area.is_in_group("player")):
 		set_state(State.PATROL)
 		player = null
+
+
+func _on_Mob_under_attack(player_area):
+	set_state(State.ENGAGE)
+	self.player = player_area

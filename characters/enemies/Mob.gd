@@ -2,6 +2,7 @@ extends Area2D
 
 signal mob_killed
 signal mob_cast_spell(spell, pos, dir)
+signal under_attack(player_area)
 
 export (PackedScene) var Spell
 
@@ -9,6 +10,7 @@ onready var ai = $AI
 onready var health_bar = $HealthBar
 onready var attack_cooldown = $MobAttackCooldown
 onready var collision_shape = $CollisionShape2D
+onready var player
 
 var MAX_HEALTH = 3
 var CURRENT_HEALTH = 3
@@ -22,6 +24,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	collision_shape.disabled = false # enable collisions
 	init_health_bar()
+	get_player()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -52,6 +55,7 @@ func init_health_bar():
 func handle_hit():
 	CURRENT_HEALTH -= 1
 	health_bar._on_health_updated(CURRENT_HEALTH)
+	emit_signal("under_attack", player) # received by AI script
 	#print("mob hp: ", MOB_HP)
 	
 	# mob dies
@@ -59,11 +63,15 @@ func handle_hit():
 		#print("mob killed!")
 		queue_free()
 		emit_signal("mob_killed")
-		
-		
+
+func get_player():
+	if(has_node("../Player")):
+		player = get_node("../Player")
+
 func _on_AI_attempt_to_shoot(target):
 	if(attack_cooldown.is_stopped()):
 		var spell_instance = preload("res://spells/Spell.tscn").instance()
+		spell_instance.modulate = Color(0,0,0.25) # change spell to appear blue
 		var spell_origin = self.global_position
 		var spell_dir = (target-spell_origin).normalized()
 		emit_signal("mob_cast_spell", spell_instance, self, spell_origin, spell_dir)
