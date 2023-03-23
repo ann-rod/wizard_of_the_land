@@ -69,6 +69,7 @@ margin_top = -21.0
 rect_scale = Vector2( 0.7, 0.7 )
 
 [connection signal="body_entered" from="." to="." method="_on_Mob_body_entered"]
+[connection signal="under_attack" from="." to="AI" method="_on_Mob_under_attack"]
 [connection signal="attempt_to_shoot" from="AI" to="." method="_on_AI_attempt_to_shoot"]
 [connection signal="chase_target" from="AI" to="." method="_on_AI_chase_target"]
 [connection signal="area_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_area_entered"]

@@ -48,7 +48,6 @@ frames = SubResource( 1 )
 animation = "down"
 
 [node name="AttackCooldown" type="Timer" parent="." groups=["player"]]
-wait_time = 2.0
 one_shot = true
 
 [node name="SpellOriginUp" type="Position2D" parent="."]
