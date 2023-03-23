@@ -15,6 +15,10 @@
 [ext_resource path="res://characters/Player.gd" type="Script" id=13]
 [ext_resource path="res://key_scenes/health_bar/HealthBar.tscn" type="PackedScene" id=14]
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 16.0
+height = 14.0
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ) ],
@@ -33,19 +37,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 16.0
-height = 14.0
-
-[node name="Player" type="Area2D" groups=["player"]]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
 
 [node name="AttackCooldown" type="Timer" parent="." groups=["player"]]
 wait_time = 2.0
@@ -68,4 +68,7 @@ anchor_bottom = 0.431
 margin_top = -28.0
 rect_scale = Vector2( 1.1, 1.1 )
 
-[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
