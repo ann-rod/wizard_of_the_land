@@ -26,7 +26,7 @@ func _on_Player_player_hp_zero():
 
 
 func _on_portal_area_entered(area):
-	if area == player:
+	if area == player.get_node("Area2D"):
 		portallabel.show()
 		textbox.show()
 		menu_button.show()
