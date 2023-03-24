@@ -51,7 +51,7 @@ func _process(delta):
 		$AnimatedSprite.stop()
 		
 	#position += velocity * delta
-	move_and_collide(velocity * delta)
+	move_and_slide(velocity)
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
@@ -73,7 +73,8 @@ func init_health_bar():
 #	#print("player was hit!")
 #	handle_hit()
 	
-	
+func _physics_process(delta):
+	pass
 	
 
 	
