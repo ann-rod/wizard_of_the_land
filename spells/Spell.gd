@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 export (int) var speed = 5
 onready var kill_timer = $KillTimer
@@ -32,3 +32,12 @@ func _on_Spell_area_entered(area):
 #	if(body.has_method("handle_hit")):
 #		body.handle_hit()
 #		queue_free()
+
+func _on_Spell_body_entered(body):
+	if body.is_in_group("trees"):
+		print("hit tree 1")
+		queue_free()
+	if(body != self.spellcaster and body.has_method("handle_hit")):
+		body.handle_hit()
+		queue_free()
+	
