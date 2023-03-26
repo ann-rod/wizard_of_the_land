@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://characters/enemies/AI.gd" type="Script" id=1]
+[ext_resource path="res://key_scenes/health_bar/HealthBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/mob_sprites/mob_up_01.png" type="Texture" id=3]
+[ext_resource path="res://art/mob_sprites/mob_up_00.png" type="Texture" id=4]
+[ext_resource path="res://art/mob_sprites/mob_side_01.png" type="Texture" id=5]
+[ext_resource path="res://art/mob_sprites/mob_down_01.png" type="Texture" id=6]
+[ext_resource path="res://art/mob_sprites/mob_down_00.png" type="Texture" id=7]
+[ext_resource path="res://art/mob_sprites/mob_side_00.png" type="Texture" id=8]
+[ext_resource path="res://characters/enemies/Demon.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 14.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 95.0053
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 132.85
+
+[node name="Demon" type="KinematicBody2D"]
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.407843, 1, 0, 1 )
+scale = Vector2( 1.3, 1.3 )
+frames = SubResource( 3 )
+animation = "side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="PlayerDetectionZone" type="Area2D" parent="AI" groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+shape = SubResource( 1 )
+
+[node name="PlayerUndetectZone" type="Area2D" parent="AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerUndetectZone"]
+shape = SubResource( 2 )
+
+[node name="DemonAttackCooldown" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="HealthBar" parent="." instance=ExtResource( 2 )]
+margin_top = -21.0
+rect_scale = Vector2( 0.7, 0.7 )
+
+[connection signal="under_attack" from="." to="AI" method="_on_Mob_under_attack"]
+[connection signal="attempt_to_shoot" from="AI" to="." method="_on_AI_attempt_to_shoot"]
+[connection signal="chase_target" from="AI" to="." method="_on_AI_chase_target"]
+[connection signal="area_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_PlayerDetectionZone_area_entered"]
+[connection signal="area_exited" from="AI/PlayerUndetectZone" to="AI" method="_on_PlayerUndetectZone_area_exited"]
