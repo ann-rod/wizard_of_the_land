@@ -35,9 +35,9 @@ func _on_Spell_area_entered(area):
 
 func _on_Spell_body_entered(body):
 	if body.is_in_group("trees"):
-		print("hit tree 1")
+		print("hit tree")
 		queue_free()
 	if(body != self.spellcaster and body.has_method("handle_hit")):
+		print("hit an enemy")
 		body.handle_hit()
 		queue_free()
-	

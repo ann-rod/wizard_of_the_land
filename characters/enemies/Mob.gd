@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 signal mob_killed
 signal mob_cast_spell(spell, pos, dir)
