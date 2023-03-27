@@ -102,10 +102,10 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="TreeLine2" type="Node2D" parent="."]
 
-[node name="tree10" parent="TreeLine2" groups=["trees"] instance=ExtResource( 1 )]
+[node name="tree10" parent="TreeLine2" instance=ExtResource( 1 )]
 position = Vector2( 686, 300 )
 
-[node name="tree11" parent="TreeLine2" groups=["trees"] instance=ExtResource( 2 )]
+[node name="tree11" parent="TreeLine2" instance=ExtResource( 2 )]
 position = Vector2( 760, 316 )
 
 [node name="tree2" parent="TreeLine2" instance=ExtResource( 1 )]

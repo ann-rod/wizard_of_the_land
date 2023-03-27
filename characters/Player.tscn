@@ -67,7 +67,7 @@ anchor_bottom = 0.431
 margin_top = -28.0
 rect_scale = Vector2( 1.1, 1.1 )
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[node name="PlayerArea2D" type="Area2D" parent="." groups=["player"]]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerArea2D"]
 shape = SubResource( 2 )
