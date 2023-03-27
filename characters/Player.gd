@@ -68,10 +68,10 @@ func init_health_bar():
 	health_bar._on_max_health_updated(MAX_HEALTH)
 	health_bar._on_health_updated(MAX_HEALTH)
 
-#func _on_Player_body_entered(_body):
-#	emit_signal("hit")
-#	#print("player was hit!")
-#	handle_hit()
+func _on_Player_body_entered(_body):
+	emit_signal("hit")
+	print("player was hit!")
+	handle_hit()
 	
 func _physics_process(delta):
 	pass
@@ -108,5 +108,3 @@ func get_spell_origin():
 		return spell_origin_down.global_position
 	else:
 		return spell_origin_up.global_position
-
-
