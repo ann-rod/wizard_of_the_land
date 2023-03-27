@@ -29,7 +29,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-height = 10.0
+radius = 8.0
+height = 4.0
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 95.0053
@@ -37,10 +38,11 @@ radius = 95.0053
 [sub_resource type="CircleShape2D" id=4]
 radius = 132.85
 
-[node name="Mob" type="Area2D"]
+[node name="Mob" type="KinematicBody2D"]
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 1 )
 animation = "side"
 
@@ -68,7 +70,6 @@ one_shot = true
 margin_top = -21.0
 rect_scale = Vector2( 0.7, 0.7 )
 
-[connection signal="body_entered" from="." to="." method="_on_Mob_body_entered"]
 [connection signal="under_attack" from="." to="AI" method="_on_Mob_under_attack"]
 [connection signal="attempt_to_shoot" from="AI" to="." method="_on_AI_attempt_to_shoot"]
 [connection signal="chase_target" from="AI" to="." method="_on_AI_chase_target"]

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal mob_killed
+signal demon_killed
 signal mob_cast_spell(spell, pos, dir)
 signal under_attack(player_area)
 
@@ -8,24 +8,23 @@ export (PackedScene) var Spell
 
 onready var ai = $AI
 onready var health_bar = $HealthBar
-onready var attack_cooldown = $MobAttackCooldown
+onready var attack_cooldown = $DemonAttackCooldown
 onready var collision_shape = $CollisionShape2D
 onready var player
 
-var MAX_HEALTH = 3
-var CURRENT_HEALTH = 3
+var MAX_HEALTH = 6
+var CURRENT_HEALTH = 6
 
-var MOB_SPEED = 130
+var MOB_SPEED = 80
 var mob_direction = Vector2.ZERO
 var screen_size
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 	collision_shape.disabled = false # enable collisions
 	init_health_bar()
 	get_player()
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var velocity = mob_direction.normalized()*MOB_SPEED
@@ -48,11 +47,15 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "up"
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down"
-
+	
 func init_health_bar():
 	health_bar._on_max_health_updated(MAX_HEALTH)
 	health_bar._on_health_updated(MAX_HEALTH)
 
+func get_player():
+	if(has_node("../Player")):
+		player = get_node("../Player")
+	
 func handle_hit():
 	CURRENT_HEALTH -= 1
 	health_bar._on_health_updated(CURRENT_HEALTH)
@@ -63,11 +66,7 @@ func handle_hit():
 	if(CURRENT_HEALTH <= 0):
 		#print("mob killed!")
 		queue_free()
-		emit_signal("mob_killed")
-
-func get_player():
-	if(has_node("../Player")):
-		player = get_node("../Player")
+		emit_signal("demon_killed")
 
 func _on_AI_attempt_to_shoot(target):
 	if(attack_cooldown.is_stopped()):
@@ -80,8 +79,9 @@ func _on_AI_attempt_to_shoot(target):
 
 func _on_AI_chase_target(target_pos):
 	set_mob_direction(target_pos)
-
+	
 func set_mob_direction(target_pos):
 	if(target_pos == Vector2.ZERO):
 		target_pos = self.global_position
 	mob_direction = target_pos - self.global_position
+

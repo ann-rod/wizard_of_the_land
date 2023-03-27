@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://environments/level1/level1map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://environments/level1/level1.gd" type="Script" id=5]
 [ext_resource path="res://spells/SpellManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://characters/enemies/Demon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/enemies/Ghost.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 36
@@ -43,7 +45,7 @@ position = Vector2( 822, 293 )
 position = Vector2( 464, 520 )
 
 [node name="Mob4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 117, 281 )
+position = Vector2( 262, 539 )
 
 [node name="SpellManager" parent="." instance=ExtResource( 6 )]
 position = Vector2( 450, 76 )
@@ -97,6 +99,12 @@ margin_right = 563.0
 margin_bottom = 137.0
 text = "Back to menu"
 
+[node name="Demon" parent="." instance=ExtResource( 8 )]
+position = Vector2( 667, 450 )
+
+[node name="Ghost" parent="." instance=ExtResource( 9 )]
+position = Vector2( 119, 278 )
+
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="_on_Player_player_cast_spell"]
@@ -106,3 +114,5 @@ text = "Back to menu"
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob4" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
+[connection signal="mob_cast_spell" from="Demon" to="SpellManager" method="_on_Mob_mob_cast_spell"]
+[connection signal="mob_cast_spell" from="Ghost" to="SpellManager" method="_on_Mob_mob_cast_spell"]
