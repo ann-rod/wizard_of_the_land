@@ -77,7 +77,6 @@ func _physics_process(delta):
 	pass
 	
 
-	
 func handle_hit():
 	CURRENT_HEALTH -= 1
 	health_bar._on_health_updated(CURRENT_HEALTH)
