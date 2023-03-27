@@ -1,28 +1,23 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://key_scenes/health_bar/HealthBar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://art/mob_sprites/mob_up_01.png" type="Texture" id=2]
-[ext_resource path="res://art/mob_sprites/mob_side_01.png" type="Texture" id=3]
-[ext_resource path="res://art/mob_sprites/mob_up_00.png" type="Texture" id=4]
-[ext_resource path="res://art/mob_sprites/mob_down_01.png" type="Texture" id=5]
-[ext_resource path="res://art/mob_sprites/mob_down_00.png" type="Texture" id=6]
-[ext_resource path="res://art/mob_sprites/mob_side_00.png" type="Texture" id=7]
+[ext_resource path="res://art/mob_sprites/cute-ghost-transparent-7.png" type="Texture" id=2]
 [ext_resource path="res://characters/enemies/Ghost.gd" type="Script" id=8]
 [ext_resource path="res://characters/enemies/AI.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
@@ -41,7 +36,7 @@ radius = 132.85
 script = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 3 )
 animation = "side"
 
