@@ -11,6 +11,7 @@ onready var health_bar = $HealthBar
 onready var attack_cooldown = $GhostAttackCooldown
 onready var collision_shape = $CollisionShape2D
 onready var player
+onready var vis_tween = $VisibilityTween
 
 var MAX_HEALTH = 4
 var CURRENT_HEALTH = 4
@@ -46,6 +47,16 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "up"
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down"
+		
+	if not vis_tween.is_active():
+		start_fade_animation()
+		
+func start_fade_animation():
+	var current_alpha = modulate.a 
+	var target_alpha = 1.0 - current_alpha
+	var duration = 3.0
+	vis_tween.interpolate_property(self, "modulate:a", current_alpha, target_alpha, duration, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	vis_tween.start()
 		
 func init_health_bar():
 	health_bar._on_max_health_updated(MAX_HEALTH)
