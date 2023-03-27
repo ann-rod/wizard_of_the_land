@@ -56,11 +56,13 @@ position = Vector2( 450, 76 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 333, 65 )
 scale = Vector2( 0.75, 0.75 )
+current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0
 limit_top = 0
 limit_right = 1028
 limit_bottom = 602
+smoothing_enabled = true
 
 [node name="Control" type="Control" parent="."]
 margin_left = -19.0
@@ -106,6 +108,9 @@ text = "Back to cabin"
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="_on_Player_player_cast_spell"]
 [connection signal="player_hp_zero" from="Player" to="." method="_on_Player_player_hp_zero"]
+[connection signal="mob_cast_spell" from="Demon" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
+[connection signal="mob_cast_spell" from="Ghost" to="SpellManager" method="_on_Mob_mob_cast_spell"]
+[connection signal="mob_cast_spell" from="Demon2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]

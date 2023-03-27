@@ -13,5 +13,5 @@ func _ready():
 
 
 func _on_Area2D_area_entered(area):
-	if area.name == 'Player':
+	if area.name == 'PlayerArea2D':
 		emit_signal('chest_opened')

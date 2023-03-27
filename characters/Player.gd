@@ -4,15 +4,15 @@ signal hit
 signal player_hp_zero
 signal player_cast_spell(spell, pos, dir)
 
-var MAX_HEALTH = 3
-var CURRENT_HEALTH = 3
+var MAX_HEALTH = 7
+var CURRENT_HEALTH = 7
 export var speed = 250
 var screen_size
 var player_dir = Vector2(0, -1) # player dir defaults to up
 
 export (PackedScene) var Spell
 onready var health_bar = $HealthBar
-onready var collision_shape = $Area2D/CollisionShape2D2
+onready var collision_shape = $PlayerArea2D/CollisionShape2D2
 onready var attack_cooldown = $AttackCooldown
 onready var spell_origin_up = $SpellOriginUp
 onready var spell_origin_down = $SpellOriginDown

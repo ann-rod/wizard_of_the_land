@@ -26,7 +26,7 @@ func _ready():
 
 
 func _on_FirstArea_area_entered(area):
-	if area.name == "Player":
+	if area.name == "PlayerArea2D":
 		instruction_label.text = instructions[0]
 		$SecondArea.monitoring = true
 		$FirstArea.monitoring = true
@@ -39,7 +39,7 @@ func _on_FirstArea_area_exited(area):
 
 
 func _on_SecondArea_area_entered(area):
-	if area.name == "Player":
+	if area.name == "PlayerArea2D":
 		instruction_label.text = instructions[1]
 		print('Entered 2nd area')
 		emit_signal('enter_area_2')
@@ -50,7 +50,7 @@ func _on_SecondArea_area_exited(area):
 
 
 func _on_ThirdArea_area_entered(area):
-	if area.name == "Player":
+	if area.name == "PlayerArea2D":
 		instruction_label.text = instructions[2]
 		$SecondArea.monitoring = false
 		$FirstArea.monitoring = false

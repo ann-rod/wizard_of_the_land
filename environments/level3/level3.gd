@@ -12,7 +12,7 @@ onready var textbox = $Control/ColorRect
 func _ready():
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
 	
-	_on_portal_area_exited(player.get_node("Area2D"))
+	_on_portal_area_exited(player.get_node("PlayerArea2D"))
 
 func game_over():
 	print("game over!")
@@ -26,7 +26,7 @@ func _on_Player_player_hp_zero():
 
 
 func _on_portal_area_entered(area):
-	if area == player.get_node("Area2D"):
+	if area == player.get_node("PlayerArea2D"):
 		portallabel.show()
 		textbox.show()
 		menu_button.show()
@@ -37,7 +37,7 @@ func _on_menubutton_pressed():
 
 
 func _on_portal_area_exited(area):
-	if area == player.get_node("Area2D"):
+	if area == player.get_node("PlayerArea2D"):
 		portallabel.hide()
 		textbox.hide()
 		menu_button.hide()

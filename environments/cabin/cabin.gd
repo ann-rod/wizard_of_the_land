@@ -14,12 +14,12 @@ onready var infoShade = $Control2/ColorRect
 var wins = [true, false, false]
 
 func _ready():
-	_on_portal_area_exited(player.get_node("Area2D"))
+	_on_portal_area_exited(player.get_node("PlayerArea2D"))
 	
 	player.health_bar.visible = false
 
 func _on_portal_area_entered(area):
-	if area == player.get_node("Area2D"):
+	if area == player.get_node("PlayerArea2D"):
 		portallabel.show()
 		textbox.show()
 		
@@ -29,7 +29,7 @@ func _on_portal_area_entered(area):
 		buttons_enable()
 
 func _on_portal_area_exited(area):
-	if area == player.get_node("Area2D"):
+	if area == player.get_node("PlayerArea2D"):
 		portallabel.hide()
 		textbox.hide()
 		
