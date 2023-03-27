@@ -22,7 +22,6 @@ color = Color( 0.0470588, 0.372549, 0.0823529, 1 )
 
 [node name="cabinarea" type="Area2D" parent="."]
 position = Vector2( -1.99994, -2 )
-scale = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="cabinarea"]
 position = Vector2( 378, 187 )
@@ -70,6 +69,39 @@ margin_bottom = 87.4
 grow_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 text = "Portal to where?"
+align = 1
+valign = 1
+
+[node name="Control2" type="Control" parent="."]
+margin_left = -19.0
+margin_top = -13.0
+margin_right = 21.0
+margin_bottom = 27.0
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+anchor_left = 0.32
+anchor_top = 0.03
+anchor_right = 0.68
+anchor_bottom = 0.14
+margin_left = 240.2
+margin_top = 39.8
+margin_right = 793.8
+margin_bottom = 91.4
+grow_horizontal = 2
+color = Color( 0, 0, 0, 0.317647 )
+
+[node name="portallabel" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.06
+anchor_right = 0.5
+anchor_bottom = 0.09
+margin_left = 453.0
+margin_top = 46.6
+margin_right = 578.0
+margin_bottom = 87.4
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+text = "Use the Portal to travel the world"
 align = 1
 valign = 1
 

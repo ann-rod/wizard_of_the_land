@@ -7,16 +7,22 @@ onready var level2_button = $level2button
 onready var portallabel = $Control/portallabel
 onready var textbox = $Control/ColorRect
 
-
+onready var infoHUD = $Control2/portallabel
+onready var infoShade = $Control2/ColorRect
 
 
 func _ready():
 	_on_portal_area_exited(player.get_node("Area2D"))
+	
+	player.health_bar.visible = false
 
 func _on_portal_area_entered(area):
 	if area == player.get_node("Area2D"):
 		portallabel.show()
 		textbox.show()
+		
+		infoHUD.hide()
+		infoShade.hide()
 		
 		buttons_enable()
 
@@ -24,6 +30,9 @@ func _on_portal_area_exited(area):
 	if area == player.get_node("Area2D"):
 		portallabel.hide()
 		textbox.hide()
+		
+		infoHUD.show()
+		infoShade.show()
 		
 		buttons_disable()
 
