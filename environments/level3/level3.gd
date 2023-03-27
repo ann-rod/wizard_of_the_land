@@ -34,8 +34,6 @@ func _on_portal_area_entered(area):
 
 func _on_menubutton_pressed():
 	get_tree().change_scene("res://environments/cabin/cabin.tscn")
-	
-	
 
 
 func _on_portal_area_exited(area):

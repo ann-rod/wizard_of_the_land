@@ -106,25 +106,32 @@ align = 1
 valign = 1
 
 [node name="menubutton" type="Button" parent="."]
-margin_left = 462.0
-margin_top = 143.0
-margin_right = 562.0
-margin_bottom = 163.0
+margin_left = 463.0
+margin_top = 91.0
+margin_right = 563.0
+margin_bottom = 111.0
 text = "Back to menu"
 
 [node name="level1button" type="Button" parent="."]
-margin_left = 484.0
-margin_top = 89.0
-margin_right = 542.0
-margin_bottom = 109.0
+margin_left = 483.0
+margin_top = 120.0
+margin_right = 541.0
+margin_bottom = 140.0
 text = "Level 1"
 
 [node name="level2button" type="Button" parent="."]
 margin_left = 483.0
-margin_top = 116.0
+margin_top = 147.0
 margin_right = 541.0
-margin_bottom = 136.0
+margin_bottom = 167.0
 text = "Level 2"
+
+[node name="level3button" type="Button" parent="."]
+margin_left = 483.0
+margin_top = 173.0
+margin_right = 541.0
+margin_bottom = 193.0
+text = "Level 3"
 
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
@@ -132,3 +139,4 @@ text = "Level 2"
 [connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
 [connection signal="pressed" from="level1button" to="." method="_on_level1button_pressed"]
 [connection signal="pressed" from="level2button" to="." method="_on_level2button_pressed"]
+[connection signal="pressed" from="level3button" to="." method="_on_level3button_pressed"]

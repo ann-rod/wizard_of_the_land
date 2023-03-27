@@ -4,12 +4,14 @@ onready var player = $Player
 onready var menu_button = $menubutton
 onready var level1_button = $level1button
 onready var level2_button = $level2button
+onready var level3_button = $level3button
 onready var portallabel = $Control/portallabel
 onready var textbox = $Control/ColorRect
 
 onready var infoHUD = $Control2/portallabel
 onready var infoShade = $Control2/ColorRect
 
+var wins = [true, false, false]
 
 func _ready():
 	_on_portal_area_exited(player.get_node("Area2D"))
@@ -44,19 +46,28 @@ func _on_level1button_pressed():
 
 func _on_level2button_pressed():
 	get_tree().change_scene("res://environments/level2/level2.tscn")
+	
+func _on_level3button_pressed():
+	get_tree().change_scene("res://environments/level3/level3.tscn")
+
 
 func buttons_disable():
 	menu_button.disabled = true
 	level1_button.disabled = true
 	level2_button.disabled = true
+	level3_button.disabled = true
 	menu_button.hide()
 	level1_button.hide()
 	level2_button.hide()
+	level3_button.hide()
 	
 func buttons_enable():
 	menu_button.disabled = false
 	level1_button.disabled = false
 	level2_button.disabled = false
+	level3_button.disabled = false
 	menu_button.show()
 	level1_button.show()
 	level2_button.show()
+	level3_button.show()
+
