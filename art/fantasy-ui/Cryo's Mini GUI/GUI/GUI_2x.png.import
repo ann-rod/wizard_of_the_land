@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cabin.png-31b9aa643a20829b11e18246bbc92360.stex"
+path="res://.import/GUI_2x.png-925ab2b93a7bb7a4c5982118670921c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environments/cabin/cabin.png"
-dest_files=[ "res://.import/cabin.png-31b9aa643a20829b11e18246bbc92360.stex" ]
+source_file="res://art/fantasy-ui/Cryo's Mini GUI/GUI/GUI_2x.png"
+dest_files=[ "res://.import/GUI_2x.png-925ab2b93a7bb7a4c5982118670921c1.stex" ]
 
 [params]
 

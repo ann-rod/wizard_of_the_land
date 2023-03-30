@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://environments/HUD/HUD.gd" type="Script" id=2]
+[ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/GUI/GUI_2x.png" type="Texture" id=3]
+[ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/Buttons/buttons_4x.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( 388, 4, 24, 28 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 3 )
+region_rect = Rect2( 192, 0, 48, 48 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -19,23 +29,38 @@ color = Color( 0, 0, 0, 0.156863 )
 
 [node name="PausedText" type="Label" parent="PauseBG"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.2
 margin_left = -53.0
 margin_top = -18.5
 margin_right = 53.0
 margin_bottom = 18.5
 custom_fonts/font = SubResource( 2 )
 text = "Paused"
+align = 1
+valign = 1
 
-[node name="PauseButton" type="Button" parent="."]
-margin_left = 980.0
-margin_top = 20.0
-margin_right = 1010.0
-margin_bottom = 50.0
-text = "||"
+[node name="Pause button" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="PauseButton" type="Button" parent="Pause button"]
+margin_right = 14.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.5
+margin_top = -125.5
+margin_right = 125.5
+margin_bottom = 125.5
+custom_styles/panel = SubResource( 7 )
 
 [connection signal="mouse_entered" from="PauseBG" to="." method="_on_PauseBG_mouse_entered"]
 [connection signal="mouse_exited" from="PauseBG" to="." method="_on_PauseBG_mouse_exited"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Pause button/PauseButton" to="." method="_on_PauseButton_pressed"]
