@@ -6,13 +6,10 @@
 [ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=4]
 [ext_resource path="res://environments/level1/level1.gd" type="Script" id=5]
 [ext_resource path="res://spells/SpellManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Level1HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/enemies/Demon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/enemies/Ghost.tscn" type="PackedScene" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 36
-font_data = ExtResource( 7 )
+[ext_resource path="res://environments/HUD/HUD.tscn" type="PackedScene" id=10]
 
 [node name="level1" type="Node2D"]
 script = ExtResource( 5 )
@@ -61,45 +58,11 @@ limit_right = 1028
 limit_bottom = 602
 smoothing_enabled = true
 
-[node name="Control" type="Control" parent="."]
-margin_left = 175.0
-margin_top = -38.0
-margin_right = 215.0
-margin_bottom = 2.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = 312.2
-margin_top = 39.8
-margin_right = 723.8
-margin_bottom = 91.4
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 10 )]
 
-[node name="portallabel" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = 453.0
-margin_top = 46.6
-margin_right = 578.0
-margin_bottom = 87.4
-grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
-text = "You made it to the portal!"
-align = 1
-valign = 1
-
-[node name="menubutton" type="Button" parent="."]
-margin_left = 656.0
-margin_top = 66.0
-margin_right = 756.0
-margin_bottom = 86.0
-text = "Back to menu"
+[node name="Level1HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="Demon" parent="." instance=ExtResource( 8 )]
 position = Vector2( 667, 450 )
@@ -107,14 +70,13 @@ position = Vector2( 667, 450 )
 [node name="Ghost" parent="." instance=ExtResource( 9 )]
 position = Vector2( 119, 278 )
 
+[connection signal="player_reached_portal" from="." to="CanvasLayer/Level1HUD" method="_on_level1_player_reached_portal"]
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
-[connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="_on_Player_player_cast_spell"]
 [connection signal="player_hp_zero" from="Player" to="." method="_on_Player_player_hp_zero"]
 [connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Mob4" to="SpellManager" method="_on_Mob_mob_cast_spell"]
-[connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
 [connection signal="mob_cast_spell" from="Demon" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Ghost" to="SpellManager" method="_on_Mob_mob_cast_spell"]

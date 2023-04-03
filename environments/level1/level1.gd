@@ -1,5 +1,7 @@
 extends Node2D
 
+signal player_reached_portal
+
 onready var spell_manager = $SpellManager
 onready var player = $Player
 onready var map = $Map
@@ -7,12 +9,14 @@ onready var mob = $Mob
 onready var menu_button = $menubutton
 onready var portallabel = $Control/portallabel
 onready var textbox = $Control/ColorRect
+onready var level_1_hud = $CanvasLayer/Level1HUD
 
 
 func _ready():
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
+	level_1_hud.hide()
 	
-	_on_portal_area_exited(player.get_node("PlayerArea2D"))
+	#_on_portal_area_exited(player.get_node("PlayerArea2D"))
 
 func game_over():
 	print("game over!")
@@ -27,18 +31,14 @@ func _on_Player_player_hp_zero():
 
 func _on_portal_area_entered(area):
 	if area == player.get_node("PlayerArea2D"):
-		portallabel.show()
-		textbox.show()
-		menu_button.show()
-		menu_button.disabled = false
-
-func _on_menubutton_pressed():
-	get_tree().change_scene("res://environments/cabin/cabin.tscn")
+		print('emitting signal')
+		emit_signal("player_reached_portal")
+		level_1_hud.show()
 
 
-func _on_portal_area_exited(area):
-	if area == player.get_node("PlayerArea2D"):
-		portallabel.hide()
-		textbox.hide()
-		menu_button.hide()
-		menu_button.disabled = true
+#func _on_portal_area_exited(area):
+#	if area == player.get_node("PlayerArea2D"):
+#		portallabel.hide()
+#		textbox.hide()
+#		menu_button.hide()
+#		menu_button.disabled = true
