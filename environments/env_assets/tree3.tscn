@@ -3,6 +3,7 @@
 [ext_resource path="res://art/sprite pngs/tree 3.png" type="Texture" id=1]
 
 [node name="tree3" type="StaticBody2D" groups=["trees"]]
+collision_layer = 9
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.154587, 0.164391 )

@@ -34,6 +34,7 @@ radius = 95.0053
 radius = 132.85
 
 [node name="Demon" type="KinematicBody2D"]
+collision_layer = 137
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
