@@ -38,6 +38,7 @@ radius = 95.0053
 radius = 132.85
 
 [node name="Mob" type="KinematicBody2D"]
+collision_layer = 137
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

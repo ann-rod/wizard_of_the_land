@@ -2,7 +2,10 @@ extends Node2D
 
 func handle_spell_spawned(spell, spellcaster, spell_origin, dir):
 	#print('spell!')
+	print(spellcaster.name)
 	add_child(spell)
+	#if spellcaster.name == "Player":
+		#spell.CollisionShape2D
 	spell.global_position = spell_origin
 	spell.init_spell(spellcaster, dir)
 	$SpellSound.play()

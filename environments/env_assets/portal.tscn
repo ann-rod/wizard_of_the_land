@@ -55,10 +55,12 @@ radius = 36.0
 height = 88.0
 
 [node name="portal" type="Area2D"]
+collision_layer = 9
 
 [node name="animsprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 5.28125, 3.77941 )
 frames = SubResource( 9 )
+frame = 7
 playing = true
 
 [node name="collisionshae" type="CollisionShape2D" parent="."]
