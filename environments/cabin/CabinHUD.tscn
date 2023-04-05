@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/GUI/Sliced/GUI_4x_sliced.png" type="Texture" id=1]
 [ext_resource path="res://fonts/DungeonFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/Buttons/buttons_4x.png" type="Texture" id=3]
+[ext_resource path="res://environments/cabin/CabinHUD.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=1]
 0/name = "GUI_4x_sliced.png 0"
@@ -179,15 +181,33 @@ font_data = ExtResource( 2 )
 5/shapes = [  ]
 5/z_index = 0
 
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 132, 4, 88, 56 )
+modulate_color = Color( 0.835294, 0.831373, 0.831373, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 228, 4, 88, 56 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+region_rect = Rect2( 132, 4, 88, 56 )
+
 [node name="CabinHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="MessageBackground" type="Control" parent="."]
 anchor_left = 0.5
-anchor_top = 0.1
+anchor_top = 0.08
 anchor_right = 0.5
-anchor_bottom = 0.1
+anchor_bottom = 0.08
 margin_left = -224.0
 margin_right = 224.0
 margin_bottom = 64.0
@@ -207,6 +227,7 @@ margin_left = -154.0
 margin_top = -12.5
 margin_right = 154.0
 margin_bottom = 12.5
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Use the portal to travel the world"
 align = 1
@@ -218,6 +239,71 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( 0, 5, 0, 1, 5, 1, 2, 5, 1, 3, 5, 1, 4, 5, 1, 5, 5, 1, 6, 5, 1, 7, 5, 1, 8, 5, 1, 9, 5, 1, 10, 5, 1, 11, 5, 1, 12, 5, 1, 13, 5, 2, 65536, 5, 131072, 65537, 5, 131073, 65538, 5, 131073, 65539, 5, 131073, 65540, 5, 131073, 65541, 5, 131073, 65542, 5, 131073, 65543, 5, 131073, 65544, 5, 131073, 65545, 5, 131073, 65546, 5, 131073, 65547, 5, 131073, 65548, 5, 131073, 65549, 5, 131074 )
 
-[node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+[node name="MenuButton" type="Button" parent="."]
+anchor_left = 0.35
+anchor_top = 0.25
+anchor_right = 0.35
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Menu"
+
+[node name="Level1Button" type="Button" parent="."]
+anchor_left = 0.45
+anchor_top = 0.25
+anchor_right = 0.45
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 1"
+
+[node name="Level2Button" type="Button" parent="."]
+anchor_left = 0.55
+anchor_top = 0.25
+anchor_right = 0.55
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 2"
+
+[node name="Level3Button" type="Button" parent="."]
+anchor_left = 0.65
+anchor_top = 0.25
+anchor_right = 0.65
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 3"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="Level1Button" to="." method="_on_Level1Button_pressed"]
+[connection signal="pressed" from="Level2Button" to="." method="_on_Level2Button_pressed"]
+[connection signal="pressed" from="Level3Button" to="." method="_on_Level3Button_pressed"]
