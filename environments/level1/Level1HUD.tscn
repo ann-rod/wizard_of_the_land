@@ -241,4 +241,6 @@ margin_bottom = 28.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
-text = "Menu"
+text = "Cabin"
+
+[connection signal="pressed" from="BackToMenu" to="." method="_on_BackToMenu_pressed"]
