@@ -30,8 +30,8 @@ func _on_portal_area_entered(area):
 
 func _on_portal_area_exited(area):
 	if area == player.get_node("PlayerArea2D"):
-		portallabel.hide()
-		textbox.hide()
+		#portallabel.hide()
+		#textbox.hide()
 		
 		infoHUD.show()
 		infoShade.show()
