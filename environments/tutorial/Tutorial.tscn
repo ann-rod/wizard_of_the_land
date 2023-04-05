@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environments/env_assets/tree2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environments/env_assets/tree3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/tutorial/Tutorial.gd" type="Script" id=4]
-[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://environments/tutorial/TutorialHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=6]
 [ext_resource path="res://spells/SpellManager.gd" type="Script" id=7]
 [ext_resource path="res://art/sounds/spell_sound.mp3" type="AudioStream" id=8]
-[ext_resource path="res://environments/chest/Chest.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 149.75, 300 )
@@ -19,23 +18,20 @@ extents = Vector2( 193.062, 300 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 167.5, 299.25 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 36
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 5 )
-
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.239216, 0.396078, 0.156863, 1 )
+color = Color( 0.0470588, 0.372549, 0.0823529, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 60, 60 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="SpellManager" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -132,58 +128,20 @@ position = Vector2( 784, 95 )
 [node name="tree9" parent="TreeLine2" instance=ExtResource( 1 )]
 position = Vector2( 751, 134 )
 
-[node name="TutorialHUD" type="Control" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="TutorialHUD"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 40.0
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
+[node name="TutorialHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 
-[node name="TutorialLabel" type="Label" parent="TutorialHUD"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 14.0
-grow_horizontal = 2
-custom_fonts/font = SubResource( 4 )
-text = "Tutorial"
-align = 1
-valign = 1
-
-[node name="InstructionsLabel" type="Label" parent="TutorialHUD"]
-anchor_left = 0.5
-anchor_top = 0.13
-anchor_right = 0.5
-anchor_bottom = 0.16
-margin_left = -35.0
-margin_right = 35.0
-margin_bottom = 14.0
-grow_horizontal = 2
-custom_fonts/font = SubResource( 5 )
-text = "Intructions"
-align = 1
-valign = 1
-
-[node name="Chest" parent="." instance=ExtResource( 9 )]
-position = Vector2( 903, 563 )
-
-[node name="NextButton" type="Button" parent="."]
-margin_left = 905.0
-margin_top = 22.0
-margin_right = 1005.0
-margin_bottom = 42.0
-text = "Back to menu"
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 60, 60 )
+scale = Vector2( 0.75, 0.75 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 600
+smoothing_enabled = true
 
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="handle_spell_spawned"]
 [connection signal="area_entered" from="FirstArea" to="." method="_on_FirstArea_area_entered"]
@@ -194,5 +152,3 @@ text = "Back to menu"
 [connection signal="area_exited" from="ThirdArea" to="." method="_on_ThirdArea_area_exited"]
 [connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_killed" from="Mob" to="." method="_on_Mob_mob_killed"]
-[connection signal="chest_opened" from="Chest" to="." method="_on_Chest_chest_opened"]
-[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
