@@ -1,26 +1,21 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/enemies/Ghost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/Demon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://environments/level3/level3map.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://environments/level tilemaps/leve3tilemap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environments/level3/Level3HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://spells/SpellManager.tscn" type="PackedScene" id=8]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://environments/level3/level3.gd" type="Script" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-size = 36
-font_data = ExtResource( 5 )
+[ext_resource path="res://environments/HUD/HUD.tscn" type="PackedScene" id=11]
 
 [node name="level3" type="Node2D"]
 script = ExtResource( 10 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0.0470588, 0.372549, 0.0823529, 1 )
+[node name="tilemap3" parent="." instance=ExtResource( 4 )]
 
 [node name="level2map" parent="." instance=ExtResource( 3 )]
 
@@ -67,45 +62,11 @@ limit_right = 1028
 limit_bottom = 602
 smoothing_enabled = true
 
-[node name="Control" type="Control" parent="."]
-margin_left = -19.0
-margin_top = -13.0
-margin_right = 21.0
-margin_bottom = 27.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = 302.2
-margin_top = 46.8
-margin_right = 713.8
-margin_bottom = 98.4
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
-[node name="portallabel" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = 295.0
-margin_top = 53.6
-margin_right = 710.0
-margin_bottom = 94.4
-grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
-text = "You made it to the portal!"
-align = 1
-valign = 1
-
-[node name="menubutton" type="Button" parent="."]
-margin_left = 463.0
-margin_top = 117.0
-margin_right = 563.0
-margin_bottom = 137.0
-text = "Back to cabin"
+[node name="Level3HUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
@@ -116,4 +77,3 @@ text = "Back to cabin"
 [connection signal="mob_cast_spell" from="Ghost" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Ghost2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Demon2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
-[connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]

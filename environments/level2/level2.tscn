@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://environments/level2/level2map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
@@ -6,21 +6,16 @@
 [ext_resource path="res://characters/enemies/Mob.tscn" type="PackedScene" id=4]
 [ext_resource path="res://environments/level2/level2.gd" type="Script" id=5]
 [ext_resource path="res://spells/SpellManager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://environments/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://characters/enemies/Ghost.tscn" type="PackedScene" id=8]
 [ext_resource path="res://characters/enemies/Demon.tscn" type="PackedScene" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 36
-font_data = ExtResource( 7 )
+[ext_resource path="res://environments/level tilemaps/level2tilemap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environments/level2/Level2HUD.tscn" type="PackedScene" id=11]
 
 [node name="level2" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1028.0
-margin_bottom = 601.0
-color = Color( 0.0470588, 0.372549, 0.0823529, 1 )
+[node name="tilemap2" parent="." instance=ExtResource( 10 )]
 
 [node name="level2map" parent="." instance=ExtResource( 1 )]
 
@@ -36,13 +31,13 @@ scale = Vector2( 0.75, 0.75 )
 remote_path = NodePath("../../Camera2D")
 
 [node name="Demon" parent="." instance=ExtResource( 9 )]
-position = Vector2( 438, 182 )
+position = Vector2( 396, 187 )
 
 [node name="Mob2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 818, 126 )
 
 [node name="Mob3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 689, 372 )
+position = Vector2( 650, 381 )
 
 [node name="Ghost" parent="." instance=ExtResource( 8 )]
 position = Vector2( 232, 377 )
@@ -64,45 +59,11 @@ limit_right = 1028
 limit_bottom = 602
 smoothing_enabled = true
 
-[node name="Control" type="Control" parent="."]
-margin_left = -19.0
-margin_top = -13.0
-margin_right = 21.0
-margin_bottom = 27.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = 312.2
-margin_top = 39.8
-margin_right = 723.8
-margin_bottom = 91.4
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
 
-[node name="portallabel" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = 453.0
-margin_top = 46.6
-margin_right = 578.0
-margin_bottom = 87.4
-grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
-text = "You made it to the portal!"
-align = 1
-valign = 1
-
-[node name="menubutton" type="Button" parent="."]
-margin_left = 463.0
-margin_top = 117.0
-margin_right = 563.0
-margin_bottom = 137.0
-text = "Back to cabin"
+[node name="Level2HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
 
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
@@ -113,4 +74,3 @@ text = "Back to cabin"
 [connection signal="mob_cast_spell" from="Mob3" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Ghost" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_cast_spell" from="Demon2" to="SpellManager" method="_on_Mob_mob_cast_spell"]
-[connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
