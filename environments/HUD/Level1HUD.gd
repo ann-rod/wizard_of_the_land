@@ -17,3 +17,4 @@ func _ready():
 
 func _on_BackToMenu_pressed():
 	get_tree().change_scene("res://environments/cabin/cabin.tscn")
+

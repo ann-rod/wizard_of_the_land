@@ -6,9 +6,6 @@ onready var spell_manager = $SpellManager
 onready var player = $Player
 onready var map = $Map
 onready var mob = $Mob
-onready var menu_button = $menubutton
-onready var portallabel = $Control/portallabel
-onready var textbox = $Control/ColorRect
 onready var level_1_hud = $CanvasLayer/Level1HUD
 
 

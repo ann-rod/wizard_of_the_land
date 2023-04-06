@@ -14,3 +14,7 @@ func _on_ReturnToGame_pressed():
 
 func _on_ReturnToTitle_pressed():
 	get_tree().change_scene("res://key_scenes/title_screen/TitleScreen.tscn")
+
+
+func _on_ReturnTocabin_pressed():
+	get_tree().change_scene("res://environments/cabin/cabin.tscn")

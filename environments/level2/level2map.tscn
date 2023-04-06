@@ -8,7 +8,7 @@
 [node name="level2map" type="Node2D"]
 
 [node name="tree7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 511, 389 )
+position = Vector2( 486, 344 )
 
 [node name="tree10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 171, 187 )
@@ -17,13 +17,13 @@ position = Vector2( 171, 187 )
 position = Vector2( 220, 240 )
 
 [node name="tree12" parent="." instance=ExtResource( 2 )]
-position = Vector2( 418, 379 )
+position = Vector2( 393, 334 )
 
 [node name="tree13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 466, 496 )
+position = Vector2( 441, 451 )
 
 [node name="tree14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 422, 432 )
+position = Vector2( 397, 387 )
 
 [node name="tree15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240, 72 )
@@ -32,7 +32,7 @@ position = Vector2( 240, 72 )
 position = Vector2( 246, 152 )
 
 [node name="tree25" parent="." instance=ExtResource( 3 )]
-position = Vector2( 558, 461 )
+position = Vector2( 533, 416 )
 
 [node name="tree26" parent="." instance=ExtResource( 1 )]
 position = Vector2( 939, 195 )
