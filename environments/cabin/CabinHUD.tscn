@@ -1,0 +1,309 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/GUI/Sliced/GUI_4x_sliced.png" type="Texture" id=1]
+[ext_resource path="res://fonts/DungeonFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/Buttons/buttons_4x.png" type="Texture" id=3]
+[ext_resource path="res://environments/cabin/CabinHUD.gd" type="Script" id=4]
+
+[sub_resource type="TileSet" id=1]
+0/name = "GUI_4x_sliced.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 436, 328, 68, 68 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 4
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "GUI_4x_sliced.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 432, 4, 104, 104 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 4
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "GUI_4x_sliced.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 436, 328, 68, 68 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 4
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "GUI_4x_sliced.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 331, 5, 14, 19 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 32, 32 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "GUI_4x_sliced.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 148, 268, 140, 140 )
+2/tile_mode = 2
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 32, 32 )
+2/autotile/spacing = 4
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "GUI_4x_sliced.png 3"
+3/texture = ExtResource( 1 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 4, 268, 140, 140 )
+3/tile_mode = 2
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 32, 32 )
+3/autotile/spacing = 4
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "GUI_4x_sliced.png 4"
+4/texture = ExtResource( 1 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 112, 168, 88, 88 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 24, 24 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "GUI_4x_sliced.png 5"
+5/texture = ExtResource( 1 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 324, 4, 104, 104 )
+5/tile_mode = 2
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 32, 32 )
+5/autotile/spacing = 4
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 132, 4, 88, 56 )
+modulate_color = Color( 0.835294, 0.831373, 0.831373, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 228, 4, 88, 56 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+region_rect = Rect2( 132, 4, 88, 56 )
+
+[node name="CabinHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="MessageBackground" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.08
+anchor_right = 0.5
+anchor_bottom = 0.08
+margin_left = -224.0
+margin_right = 224.0
+margin_bottom = 64.0
+
+[node name="TileMap" type="TileMap" parent="MessageBackground"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 65537, 1, 1, 65537, 2, 1, 65537, 3, 1, 65537, 4, 1, 65537, 5, 1, 65537, 6, 1, 65537, 7, 1, 65537, 8, 1, 65537, 9, 1, 65537, 10, 1, 65537, 11, 1, 65537, 12, 1, 65537, 13, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 65537, 65539, 1, 65537, 65540, 1, 65537, 65541, 1, 65537, 65542, 1, 65537, 65543, 1, 65537, 65544, 1, 65537, 65545, 1, 65537, 65546, 1, 65537, 65547, 1, 65537, 65548, 1, 65537, 65549, 1, 65537 )
+
+[node name="Label" type="Label" parent="MessageBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -154.0
+margin_top = -12.5
+margin_right = 154.0
+margin_bottom = 12.5
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Use the portal to travel the world"
+align = 1
+valign = 1
+
+[node name="TileMapBorder" type="TileMap" parent="MessageBackground"]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 5, 1, 2, 5, 1, 3, 5, 1, 4, 5, 1, 5, 5, 1, 6, 5, 1, 7, 5, 1, 8, 5, 1, 9, 5, 1, 10, 5, 1, 11, 5, 1, 12, 5, 1, 13, 5, 2, 65536, 5, 131072, 65537, 5, 131073, 65538, 5, 131073, 65539, 5, 131073, 65540, 5, 131073, 65541, 5, 131073, 65542, 5, 131073, 65543, 5, 131073, 65544, 5, 131073, 65545, 5, 131073, 65546, 5, 131073, 65547, 5, 131073, 65548, 5, 131073, 65549, 5, 131074 )
+
+[node name="MenuButton" type="Button" parent="."]
+anchor_left = 0.35
+anchor_top = 0.25
+anchor_right = 0.35
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Menu"
+
+[node name="Level1Button" type="Button" parent="."]
+anchor_left = 0.45
+anchor_top = 0.25
+anchor_right = 0.45
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 1"
+
+[node name="Level2Button" type="Button" parent="."]
+anchor_left = 0.55
+anchor_top = 0.25
+anchor_right = 0.55
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 2"
+
+[node name="Level3Button" type="Button" parent="."]
+anchor_left = 0.65
+anchor_top = 0.25
+anchor_right = 0.65
+anchor_bottom = 0.25
+margin_left = -44.0
+margin_top = -28.0
+margin_right = 44.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 0.294118, 0.207843, 0.207843, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 4 )
+text = "Level 3"
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="Level1Button" to="." method="_on_Level1Button_pressed"]
+[connection signal="pressed" from="Level2Button" to="." method="_on_Level2Button_pressed"]
+[connection signal="pressed" from="Level3Button" to="." method="_on_Level3Button_pressed"]

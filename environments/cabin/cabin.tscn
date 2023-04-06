@@ -1,142 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://environments/cabin/cabin.png" type="Texture" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/cabin/cabin.gd" type="Script" id=4]
-[ext_resource path="res://fonts/MedievalSharp/MedievalSharp-Regular.ttf" type="DynamicFontData" id=7]
-
-[sub_resource type="DynamicFont" id=1]
-size = 36
-font_data = ExtResource( 7 )
+[ext_resource path="res://environments/cabin/CabinHUD.tscn" type="PackedScene" id=5]
 
 [node name="cabin" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1028.0
-margin_bottom = 601.0
+margin_right = 1024.0
+margin_bottom = 600.0
 color = Color( 0.0470588, 0.372549, 0.0823529, 1 )
 
-[node name="cabinarea" type="StaticBody2D" parent="."]
-position = Vector2( -1.99994, -2 )
-
-[node name="Sprite" type="Sprite" parent="cabinarea"]
-position = Vector2( 378, 187 )
-scale = Vector2( 0.631348, 0.576172 )
-texture = ExtResource( 1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cabinarea"]
-position = Vector2( 378, 187 )
-scale = Vector2( 0.631348, 0.576172 )
-polygon = PoolVector2Array( 36, -500, 66, -500, 66, -497, 67.8, -484, 98, -484, 98, -481, 99.8, -468, 130, -468, 130, -465, 131.8, -452, 162, -452, 162, -449, 163.8, -436, 194, -436, 194, -433, 195.8, -420, 226, -420, 226, -417, 227.8, -404, 258, -404, 258, -401, 259.8, -388, 290, -388, 290, -385, 291.8, -372, 322, -372, 322, -369, 323.8, -356, 354, -356, 354, -353, 355.8, -340, 386, -340, 386, -337, 387.8, -324, 418, -324, 418, -321, 419.8, -308, 450, -308, 450, -305, 451.8, -292, 482, -292, 482, -289, 483.8, -276, 496.8, -276, 500, -272.8, 500, -260, 512, -260, 512, 228, 500, 228, 500, 434, 497.3, 434, 484, 435.8, 484, 448.8, 480.8, 452, 452, 452, 452, 481.8, 436, 483.8, 436, 496.8, 432.8, 500, 100, 500, 100, 512, -100, 512, -100, 500, -434, 500, -434, 497, -435.8, 484, -448.8, 484, -452, 480.8, -452, 452, -481.8, 452, -483.8, 436, -496.8, 436, -500, 432.8, -500, 228, -512, 228, -512, -260, -500, -260, -500, -274, -497.3, -274, -484, -275.8, -484, -288.8, -480.8, -292, -451.8, -292, -449.8, -308, -419.8, -308, -417.8, -324, -387.8, -324, -385.8, -340, -355.8, -340, -353.8, -356, -324, -356, -324, -368.8, -320.8, -372, -292, -372, -292, -384.8, -288.8, -388, -260, -388, -260, -400.8, -256.8, -404, -228, -404, -228, -416.8, -224.8, -420, -196, -420, -196, -432.8, -192.8, -436, -164, -436, -164, -448.8, -160.8, -452, -132, -452, -132, -464.8, -128.8, -468, -100, -468, -100, -480.8, -96.8, -484, -68, -484, -68, -496.8, -64.8, -500, -36, -500, -36, -512, 36, -512 )
-
 [node name="portal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 888, 219 )
+position = Vector2( 888, 197 )
 scale = Vector2( 1.75, 1.75 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 824, 482 )
 scale = Vector2( 2, 2 )
 
-[node name="Control" type="Control" parent="."]
-margin_left = -19.0
-margin_top = -13.0
-margin_right = 21.0
-margin_bottom = 27.0
+[node name="cabinarea" type="StaticBody2D" parent="."]
+position = Vector2( -1.99994, -2 )
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = 371.2
-margin_top = 39.8
-margin_right = 660.8
-margin_bottom = 91.4
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
+[node name="Sprite" type="Sprite" parent="cabinarea"]
+position = Vector2( 259, 294 )
+scale = Vector2( 0.413208, 0.377096 )
+texture = ExtResource( 1 )
 
-[node name="portallabel" type="Label" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = 453.0
-margin_top = 46.6
-margin_right = 578.0
-margin_bottom = 87.4
-grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
-text = "Portal to where?"
-align = 1
-valign = 1
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cabinarea"]
+position = Vector2( 259, 294 )
+scale = Vector2( 0.413208, 0.377096 )
+polygon = PoolVector2Array( 36, -500, 66, -500, 66, -497, 67.8, -484, 98, -484, 98, -481, 99.8, -468, 130, -468, 130, -465, 131.8, -452, 162, -452, 162, -449, 163.8, -436, 194, -436, 194, -433, 195.8, -420, 226, -420, 226, -417, 227.8, -404, 258, -404, 258, -401, 259.8, -388, 290, -388, 290, -385, 291.8, -372, 322, -372, 322, -369, 323.8, -356, 354, -356, 354, -353, 355.8, -340, 386, -340, 386, -337, 387.8, -324, 418, -324, 418, -321, 419.8, -308, 450, -308, 450, -305, 451.8, -292, 452, 452, 452, 481.8, 436, 483.8, 436, 496.8, 432.8, 500, 100, 500, 100, 512, -100, 512, -100, 500, -434, 500, -434, 497, -435.8, 484, -448.8, 484, -452.557, 466.725, -452, 452, -451.8, -292, -449.8, -308, -419.8, -308, -417.8, -324, -387.8, -324, -385.8, -340, -355.8, -340, -353.8, -356, -324, -356, -324, -368.8, -320.8, -372, -292, -372, -292, -384.8, -288.8, -388, -260, -388, -260, -400.8, -256.8, -404, -228, -404, -228, -416.8, -224.8, -420, -196, -420, -196, -432.8, -192.8, -436, -164, -436, -164, -448.8, -160.8, -452, -132, -452, -132, -464.8, -128.8, -468, -100, -468, -100, -480.8, -96.8, -484, -68, -484, -68, -496.8, -64.8, -500, -36, -500, -36, -512, 36, -512 )
 
-[node name="Control2" type="Control" parent="."]
-margin_left = -19.0
-margin_top = -13.0
-margin_right = 21.0
-margin_bottom = 27.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Control2"]
-anchor_left = 0.32
-anchor_top = 0.03
-anchor_right = 0.68
-anchor_bottom = 0.14
-margin_left = 240.2
-margin_top = 39.8
-margin_right = 793.8
-margin_bottom = 91.4
-grow_horizontal = 2
-color = Color( 0, 0, 0, 0.317647 )
-
-[node name="portallabel" type="Label" parent="Control2"]
-anchor_left = 0.5
-anchor_top = 0.06
-anchor_right = 0.5
-anchor_bottom = 0.09
-margin_left = 453.0
-margin_top = 46.6
-margin_right = 578.0
-margin_bottom = 87.4
-grow_horizontal = 2
-custom_fonts/font = SubResource( 1 )
-text = "Use the Portal to travel the world"
-align = 1
-valign = 1
-
-[node name="menubutton" type="Button" parent="."]
-margin_left = 463.0
-margin_top = 91.0
-margin_right = 563.0
-margin_bottom = 111.0
-text = "Back to menu"
-
-[node name="level1button" type="Button" parent="."]
-margin_left = 483.0
-margin_top = 120.0
-margin_right = 541.0
-margin_bottom = 140.0
-text = "Level 1"
-
-[node name="level2button" type="Button" parent="."]
-margin_left = 483.0
-margin_top = 147.0
-margin_right = 541.0
-margin_bottom = 167.0
-text = "Level 2"
-
-[node name="level3button" type="Button" parent="."]
-margin_left = 483.0
-margin_top = 173.0
-margin_right = 541.0
-margin_bottom = 193.0
-text = "Level 3"
+[node name="CabinHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
 [connection signal="player_hp_zero" from="Player" to="." method="_on_Player_player_hp_zero"]
-[connection signal="pressed" from="menubutton" to="." method="_on_menubutton_pressed"]
-[connection signal="pressed" from="level1button" to="." method="_on_level1button_pressed"]
-[connection signal="pressed" from="level2button" to="." method="_on_level2button_pressed"]
-[connection signal="pressed" from="level3button" to="." method="_on_level3button_pressed"]
