@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="Spell" type="RigidBody2D" groups=["spells"]]
-collision_layer = 9
+collision_layer = 8
 gravity_scale = 0.0
 contacts_reported = 10
 contact_monitor = true

@@ -4,8 +4,8 @@ func handle_spell_spawned(spell, spellcaster, spell_origin, dir):
 	#print('spell!')
 	print(spellcaster.name)
 	add_child(spell)
-	#if spellcaster.name == "Player":
-		#spell.CollisionShape2D
+	if spellcaster.name == "Mob":
+		spell.collision_mask = 128
 	spell.global_position = spell_origin
 	spell.init_spell(spellcaster, dir)
 	$SpellSound.play()
