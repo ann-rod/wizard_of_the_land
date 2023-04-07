@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fonts/DungeonFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/fantasy-ui/Cryo's Mini GUI/GUI/Sliced/GUI_4x_sliced.png" type="Texture" id=2]
@@ -193,6 +193,9 @@ region_rect = Rect2( 4, 4, 56, 56 )
 size = 20
 font_data = ExtResource( 1 )
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 224, 64 )
+
 [sub_resource type="DynamicFont" id=7]
 size = 24
 font_data = ExtResource( 1 )
@@ -306,6 +309,12 @@ text = "1 / 4"
 align = 1
 valign = 1
 
+[node name="Area2D" type="Area2D" parent="MessageBackground"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MessageBackground/Area2D"]
+position = Vector2( 224, 64 )
+shape = SubResource( 11 )
+
 [node name="MenuButton" type="Button" parent="."]
 anchor_left = 0.98
 anchor_top = 0.02
@@ -322,4 +331,6 @@ text = "Menu"
 
 [connection signal="pressed" from="MessageBackground/InstructionsNext" to="." method="_on_InstructionsNext_pressed"]
 [connection signal="pressed" from="MessageBackground/InstructionsBack" to="." method="_on_InstructionsBack_pressed"]
+[connection signal="area_entered" from="MessageBackground/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="MessageBackground/Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]

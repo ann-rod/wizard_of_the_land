@@ -12,7 +12,7 @@ var player_dir = Vector2(0, -1) # player dir defaults to up
 
 export (PackedScene) var Spell
 onready var health_bar = $HealthBar
-onready var collision_shape = $PlayerArea2D/CollisionShape2D2
+onready var collision_shape = $PlayerArea2D/CollisionShape2D
 onready var attack_cooldown = $AttackCooldown
 onready var spell_origin_up = $SpellOriginUp
 onready var spell_origin_down = $SpellOriginDown
