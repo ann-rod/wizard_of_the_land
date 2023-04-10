@@ -1,23 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://characters/enemies/AI.gd" type="Script" id=1]
 [ext_resource path="res://key_scenes/health_bar/HealthBar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/mob_sprites/d786ved-44d6ba82-ae0e-4040-9ae2-4aab0e0ec25c.png" type="Texture" id=3]
+[ext_resource path="res://art/mob_sprites/demon_down_00.png" type="Texture" id=3]
+[ext_resource path="res://art/mob_sprites/demon_up_01.png" type="Texture" id=4]
+[ext_resource path="res://art/mob_sprites/demon_up_00.png" type="Texture" id=5]
+[ext_resource path="res://art/mob_sprites/demon_side_00.png" type="Texture" id=6]
+[ext_resource path="res://art/mob_sprites/demon_side_01png.png" type="Texture" id=7]
+[ext_resource path="res://art/mob_sprites/demon_down_01png.png" type="Texture" id=8]
 [ext_resource path="res://characters/enemies/Demon.gd" type="Script" id=9]
+[ext_resource path="res://art/mob_sprites/demon_down_02.png" type="Texture" id=10]
+[ext_resource path="res://art/mob_sprites/demon_down_03.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
@@ -38,7 +45,7 @@ collision_layer = 137
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 3 )
 animation = "side"
 
