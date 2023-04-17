@@ -14,6 +14,10 @@ config/name="WizardOfTheLand"
 run/main_scene="res://key_scenes/title_screen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://environments/Global.gd"
+
 [display]
 
 window/stretch/aspect="keep"

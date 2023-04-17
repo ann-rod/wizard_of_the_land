@@ -8,6 +8,8 @@ onready var map = $Map
 onready var mob = $Mob
 onready var level_1_hud = $CanvasLayer/Level1HUD
 
+onready var beatLevels = get_node("/root/Global")
+
 
 func _ready():
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
@@ -31,6 +33,7 @@ func _on_portal_area_entered(area):
 		print('emitting signal')
 		emit_signal("player_reached_portal")
 		level_1_hud.show()
+		beatLevels.level2ready = true;
 
 
 #func _on_portal_area_exited(area):
