@@ -12,6 +12,7 @@ onready var beatLevels = get_node("/root/Global")
 
 
 func _ready():
+	$levelMusic.play()
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
 	level_1_hud.hide()
 	

@@ -8,6 +8,7 @@ onready var level_3_hud = $CanvasLayer/Level3HUD
 
 
 func _ready():
+	$levelMusic.play()
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
 	
 	level_3_hud.hide()

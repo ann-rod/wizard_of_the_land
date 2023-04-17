@@ -9,6 +9,7 @@ onready var level_2_hud = $CanvasLayer/Level2HUD
 onready var beatLevels = get_node("/root/Global")
 
 func _ready():
+	$levelMusic.play()
 	player.connect("player_cast_spell", spell_manager, "handle_spell_spawned")
 	level_2_hud.hide()
 

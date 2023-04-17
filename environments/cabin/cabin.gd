@@ -7,6 +7,7 @@ onready var gameObj = $CanvasLayer/gameobjective
 onready var beatLevels = get_node("/root/Global")
 
 func _ready():
+	$TitleTheme.play()
 	cabin_hud.hide()
 	if beatLevels.level2ready == false:
 		cabin_hud.get_node("Level2Button").hide()

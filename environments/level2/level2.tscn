@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://environments/level2/level2map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
@@ -11,9 +11,13 @@
 [ext_resource path="res://characters/enemies/Demon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://environments/level tilemaps/level2tilemap.tscn" type="PackedScene" id=10]
 [ext_resource path="res://environments/level2/Level2HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/sounds/Corrido_of_the_Isles_abbridged.mp3" type="AudioStream" id=12]
 
 [node name="level2" type="Node2D"]
 script = ExtResource( 5 )
+
+[node name="levelMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 
 [node name="tilemap2" parent="." instance=ExtResource( 10 )]
 
