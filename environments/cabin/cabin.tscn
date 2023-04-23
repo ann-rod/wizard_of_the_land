@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://environments/cabin/cabin.png" type="Texture" id=1]
 [ext_resource path="res://environments/env_assets/portal.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://environments/cabin/gameobjective.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environments/cabin/cabinmap.tscn" type="PackedScene" id=8]
 [ext_resource path="res://art/sounds/title_theme.mp3" type="AudioStream" id=9]
+[ext_resource path="res://environments/cabin/beatgamescript.tscn" type="PackedScene" id=10]
 
 [node name="cabin" type="Node2D"]
 script = ExtResource( 4 )
@@ -49,6 +50,8 @@ collision_layer = 75
 [node name="CabinHUD" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [node name="gameobjective" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="beatgame" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [connection signal="area_entered" from="portal" to="." method="_on_portal_area_entered"]
 [connection signal="area_exited" from="portal" to="." method="_on_portal_area_exited"]
