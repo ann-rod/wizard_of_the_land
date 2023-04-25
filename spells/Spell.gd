@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export (int) var speed = 5
+export (int) var speed = 3.5
 onready var kill_timer = $KillTimer
 var direction = Vector2.ZERO
 var spellcaster = null # must be set so a spell cant hurt its caster
@@ -13,9 +13,10 @@ func _physics_process(_delta):
 		var velocity = direction*speed
 		global_position += velocity
 
-func init_spell(spellcaster, dir):
+func init_spell(spellcaster, dir, speed):
 	self.spellcaster = spellcaster
 	self.direction = dir
+	self.speed = speed
 
 func _on_KillTimer_timeout():
 	# deletes spells that didn't hit a target

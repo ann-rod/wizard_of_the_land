@@ -16,7 +16,7 @@ onready var vis_tween = $VisibilityTween
 var MAX_HEALTH = 4
 var CURRENT_HEALTH = 4
 
-var MOB_SPEED = 115
+var MOB_SPEED = 40
 var mob_direction = Vector2.ZERO
 var screen_size
 

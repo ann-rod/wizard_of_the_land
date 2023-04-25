@@ -6,7 +6,7 @@ signal player_cast_spell(spell, pos, dir)
 
 var MAX_HEALTH = 7
 var CURRENT_HEALTH = 7
-export var speed = 250
+export var speed = 150
 var screen_size
 var player_dir = Vector2(0, -1) # player dir defaults to up
 
