@@ -18,7 +18,7 @@ func game_over():
 	player.hide() # hide player
 	player.collision_shape.set_deferred("disabled", true) # disable collisions
 	player.disconnect("player_cast_spell", spell_manager, "handle_spell_spawned")
-	get_tree().change_scene("res://key_scenes/title_screen/TitleScreen.tscn")
+	get_tree().change_scene("res://key_scenes/death/DeathScene.tscn")
 	
 func _on_Player_player_hp_zero():
 	game_over()

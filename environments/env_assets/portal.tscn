@@ -64,7 +64,7 @@ collision_layer = 9
 [node name="animsprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 5.28125, 3.77941 )
 frames = SubResource( 9 )
-frame = 6
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
