@@ -14,6 +14,7 @@ var page_number = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instructions_back.hide()
+	menu_button.hide()
 	page_label.text = str(page_number) + " / 3"
 	instructions_label.text = instructions[page_number - 1]
 
@@ -45,3 +46,13 @@ func check_page_number():
 		instructions_back.show()
 	else:
 		instructions_back.hide()
+
+
+func _on_portal_area_entered(area):
+	if area.name == "PlayerArea2D":
+		instructions_label.text = "You have completed the tutorial!"
+		instructions_back.hide()
+		instructions_next.hide()
+		page_label.hide()
+		menu_button.show()
+		

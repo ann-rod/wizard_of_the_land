@@ -14,6 +14,10 @@ script = ExtResource( 4 )
 
 [node name="tutorialtilemap" parent="." instance=ExtResource( 1 )]
 
+[node name="portal" parent="." instance=ExtResource( 2 )]
+position = Vector2( 971, 498 )
+scale = Vector2( 0.5, 0.5 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 60, 60 )
 scale = Vector2( 0.75, 0.75 )
@@ -46,10 +50,8 @@ limit_right = 1024
 limit_bottom = 600
 smoothing_enabled = true
 
-[node name="portal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 971, 498 )
-scale = Vector2( 0.5, 0.5 )
-
+[connection signal="area_entered" from="portal" to="CanvasLayer/TutorialHUD" method="_on_portal_area_entered"]
+[connection signal="area_exited" from="portal" to="CanvasLayer/TutorialHUD" method="_on_portal_area_exited"]
 [connection signal="player_cast_spell" from="Player" to="SpellManager" method="handle_spell_spawned"]
 [connection signal="mob_cast_spell" from="Mob" to="SpellManager" method="_on_Mob_mob_cast_spell"]
 [connection signal="mob_killed" from="Mob" to="." method="_on_Mob_mob_killed"]
