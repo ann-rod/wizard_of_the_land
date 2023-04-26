@@ -15,7 +15,7 @@ onready var player
 var MAX_HEALTH = 6
 var CURRENT_HEALTH = 6
 
-var MOB_SPEED = 80
+var MOB_SPEED = 30
 var mob_direction = Vector2.ZERO
 var screen_size
 
