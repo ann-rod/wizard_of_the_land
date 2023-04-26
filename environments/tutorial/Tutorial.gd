@@ -12,7 +12,7 @@ onready var portal_col = $portal/CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	portal.hide()
-	
+	$MainTheme.play()
 	#portal.collision_shape.set_deferred("disabled", true) # disable collisions
 	portal_col.set_deferred("disabled", true)
 
