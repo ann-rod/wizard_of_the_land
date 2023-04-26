@@ -6,6 +6,7 @@ onready var map = $Map
 onready var mob = $Mob
 onready var level_3_hud = $CanvasLayer/Level3HUD
 
+onready var beatLevels = get_node("/root/Global")
 
 func _ready():
 	$levelMusic.play()
@@ -29,6 +30,8 @@ func _on_portal_area_entered(area):
 		print('emitting signal')
 		emit_signal("player_reached_portal")
 		level_3_hud.show()
+		
+		beatLevels.level3beaten = true;
 
 #func _on_portal_area_exited(area):
 	#if area == player.get_node("PlayerArea2D"):
